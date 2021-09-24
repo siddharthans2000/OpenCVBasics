@@ -15,7 +15,7 @@ from matplotlib import pyplot as plt
 def nothing(x):
     pass
 
-img=cv.imread("C:/Users/Turing/Downloads/My Photo.jpeg",0)
+img=cv.imread("C:/Users/Turing/Downloads/sudoku.jpg",0)
 img=cv.resize(img,(500,500))
 
 cv.namedWindow("Canny")
