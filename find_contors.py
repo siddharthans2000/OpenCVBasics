@@ -6,10 +6,13 @@ import numpy as np
 import cv2 as cv
 def nothing(x):
     pass
+
 img=cv.imread("C:/Users/Turing/Downloads/OpenCV.png")
 img_gray=cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 cv.namedWindow("Threshold")
 cv.createTrackbar("T1","Threshold",10,255,nothing)
+
+
 while(True):
     b=cv.getTrackbarPos("T1","Threshold")
     ret,thresh=cv.threshold(img_gray,b,255,0)

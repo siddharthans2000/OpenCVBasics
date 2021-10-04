@@ -1,9 +1,10 @@
 import cv2 as cv
 import numpy as np
+import matplotlib.pyplot as plt
 def nothing(x):
     pass
 cv.namedWindow("Tracking")
-cap=cv.VideoCapture(0)
+
 cv.createTrackbar("LH","Tracking",0,255,nothing)
 cv.createTrackbar("LS","Tracking",0,255,nothing)
 cv.createTrackbar("LV","Tracking",0,255,nothing)
@@ -12,8 +13,8 @@ cv.createTrackbar("HS","Tracking",255,255,nothing)
 cv.createTrackbar("HV","Tracking",255,255,nothing)
 
 while True:
-    ret,frame=cap.read()
-    frame=cv.resize(frame,(512,512))
+    frame=cv.imread("C:/Users/Turing/Downloads/red track.jpg")
+    frame=cv.resize(frame,(500,500))
     hsv=cv.cvtColor(frame,cv.COLOR_BGR2HSV)
 
     l_h=cv.getTrackbarPos("LH","Tracking")
@@ -35,5 +36,4 @@ while True:
     k=cv.waitKey(1)
     if k==27:
         break
-cap.release()
 cv.destroyAllWindows()
